@@ -1,0 +1,52 @@
+<mah:MetroWindow x:Class="Kalum21.Views.ClasesView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:Kalum21"
+        mc:Ignorable="d"
+        Title="Clases" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>  
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <DataGrid 
+            Margin="20" 
+            ColumnWidth="*" 
+            CanUserAddRows="false" 
+            SelectedItem="{Binding Seleccionado}" 
+            Grid.Row="0" Grid.Column="0" 
+            ItemsSource="{Binding Clases}" 
+            AutoGenerateColumns="false"
+        >
+            <!--<DataGrid.Columns>
+                <DataGridCheckBoxColumn 
+                    ElementStyle="{DynamicResource MetroDataGridCheckBox}"
+                    EditingElementStyle="{DynamicResource MetroDataGridCheckBox}"
+                    Header="Seleccionado"
+                    Binding="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=IsSelected, Mode=OneWay}"
+                />
+                <DataGridTextColumn Binding="{Binding Descripcion}" Header="Descripcion" IsReadOnly="true"/>
+                <DataGridTextColumn Binding="{Binding Ciclo}" Header="Ciclo" IsReadOnly="true"/>
+                <DataGridTextColumn Binding="{Binding CupoMaximo}" Header="CupoMaximo" IsReadOnly="true"/>
+                <DataGridTextColumn Binding="{Binding CupoMinimo}" Header="CupoMinimo" IsReadOnly="true"/>
+            </DataGrid.Columns>-->
+        </DataGrid>
+        
+        <!--PASO 25 - CREAR EL BOTON ELIMINAR-->
+        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
+            <Button Content="Eliminar" Command="{Binding Instancia}" CommandParameter="Eliminar" Margin="10"/>
+            <!--PASO 41 - CREAR EL BOTON NUEVO-->
+            <Button Content="Nuevo" Command="{Binding Instancia}" CommandParameter="Nuevo" Margin="10"/>
+            <!--PASO 49 - CREAR EL BOTON MODIFICAR-->
+            <Button Content="Modificar" Command="{Binding Instancia}" CommandParameter="Modificar" Margin="10"/>
+        </StackPanel>
+        <!---->
+    </Grid>
+</mah:MetroWindow>
